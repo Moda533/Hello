@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Hover Effects</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Big unique symbol as background */
+        body::before {
+            content: '⚔️⚡⚔️⚡';
+            position: absolute;
+            font-size: 250px;
+            color: rgba(0, 0, 0, 0.1);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1; /* Background element */
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 50px;
+            letter-spacing: 5px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            color: transparent; /* Set text to transparent */
+            background-clip: text; /* For modern browsers */
+            -webkit-background-clip: text; /* For Safari */
+            animation: hue-rotate 4s infinite;
+        }
+
+        /* Animation to cycle through colors */
+        @keyframes hue-rotate {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 20px;
+            display: inline-block;
+            border-radius: 12px;
+            background-color: #4682b4; /* Same background color for all */
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+            position: relative; /* Add this line */
+            z-index: 1; /* Ensure links are above other elements */
+        }
+
+        /* Hover effect: smooth movement and shadow */
+        a:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add animation to moving subjects */
+        a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        a:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>⚔️⚡⚔️⚡ Welcome ⚔️⚡⚔️⚡</h1>
+
+    <!-- Link to King.html with a relative path -->
+    <a href="King.html">King</a>
+    <a href="#">Home</a>
+    <a href="#">Administrators</a>
+
+</body>
+</html>
